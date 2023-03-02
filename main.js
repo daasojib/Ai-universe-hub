@@ -33,6 +33,7 @@ const displayAllData = (show) =>{
           `
           showContainer.appendChild(div);
           });
+          spinnerSection(false);
 }
 
 const seeAll = () =>{
@@ -41,6 +42,17 @@ const seeAll = () =>{
           .then(data=> displayAllData(data.data.tools))
           const allData = document.getElementById('aiAllData');
           allData.innerHTML = '';
+          spinnerSection(true);
+}
+
+const spinnerSection = isLoading =>{
+          const loader = document.getElementById('spinner')
+          if(isLoading){
+                    loader.classList.remove('d-none')
+          }
+          else{
+                    loader.classList.add('d-none')
+          }
 }
 
 showAllData();
