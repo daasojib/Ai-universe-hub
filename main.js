@@ -23,9 +23,10 @@ const displayAllData = (show) =>{
               </p>
             </div>
             <hr>
-            <div>
+            <div class="d-flex">
             <h5 class="card-title fw-bold ms-3">${elements.name}</h5>
             <p class="ms-3"><i class="me-3 fa-solid fa-calendar-days"></i>${elements.published_in}</p>
+            <button type="button" class="ms-auto mb-3 me-3 btn btn-danger"><i class=" fa-solid fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -34,5 +35,12 @@ const displayAllData = (show) =>{
           });
 }
 
+const seeAll = () =>{
+          fetch('https://openapi.programming-hero.com/api/ai/tools')
+          .then(res =>res.json())
+          .then(data=> displayAllData(data.data.tools))
+          const allData = document.getElementById('aiAllData');
+          allData.innerHTML = '';
+}
 
 showAllData();
