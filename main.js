@@ -63,7 +63,7 @@ const showDetails = (id) =>{
 }
 
 const showAiDetailsModal = (ai) =>{
-  console.log(ai.data.description);
+  // console.log(ai.data.image);
   const modalPart = document.getElementById('modalDiv');
   // const modalDiv = document.createElement('div');
   modalPart.classList.add('modal-xl')
@@ -74,15 +74,15 @@ const showAiDetailsModal = (ai) =>{
       <div class="card-body">
       <p class="fw-bold fs-2 text">${ai.data.description}</p>
       <div class="d-lg-flex justify-content-between mt-5 mb-5">
-      <div class="border border-danger p-2 text-success text-center">
+      <div class="border border-danger p-2 text-success text-center bg-light">
         <p>${ai.data.pricing[0].price}</p>
         <p>${ai.data.pricing[0].plan}</p>
       </div>
-      <div class="border border-danger p-2 text-primary text-center">
+      <div class="border border-danger p-2 text-primary text-center bg-light">
         <p>${ai.data.pricing[1].price}</p>
         <p>${ai.data.pricing[1].plan}</p>
       </div>
-      <div class="border border-danger p-2 text-danger text-center">
+      <div class="border border-danger p-2 text-danger text-center bg-light">
         <p>${ai.data.pricing[2].price}</p>
         <p>${ai.data.pricing[2].plan}</p>
       </div>
@@ -104,8 +104,8 @@ const showAiDetailsModal = (ai) =>{
     </div>
   </div>
   <div class="col-sm-6">
-  <div class="card" style="width: 18rem;">
-  <img src="'${ai.data.image}'" class="card-img" alt="...">
+  <div class="card">
+  <img class="img-fluid w-full" src="${ai.data.image_link[0]}" class="card-img" alt="...">
 </div>
   </div>
 </div>
