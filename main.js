@@ -1,7 +1,8 @@
-const showAllData = () =>{
-          fetch('https://openapi.programming-hero.com/api/ai/tools')
-          .then(res =>res.json())
-          .then(data=> displayAllData(data.data.tools.slice(0,6)))
+const showAllData = async() =>{
+          const url = 'https://openapi.programming-hero.com/api/ai/tools' 
+          const res = await (fetch(url))
+          const data = await (res.json())
+          displayAllData(data.data.tools.slice(0,6))
 }
 
 const displayAllData = (show) =>{
@@ -55,11 +56,11 @@ const spinnerSection = isLoading =>{
           }
 }
 
-const showDetails = (id) =>{
+const showDetails = async(id) =>{
   const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`
-  fetch(url)
-  .then(res=>res.json())
-  .then(data=>showAiDetailsModal(data))
+  const res = await(fetch(url))
+  const data = await(res.json())
+  showAiDetailsModal(data)
 }
 
 const showAiDetailsModal = (ai) =>{
@@ -104,11 +105,11 @@ const showAiDetailsModal = (ai) =>{
     </div>
   </div>
   <div class="col-sm-6">
-  <div class="card">
-  <button class="w-25 ms-auto btn btn-danger">${ai.data.accuracy.score}% accuracy</button>
+  <div class="card position-relative">
+  <button class="w-25 btn btn-danger position-absolute top-0 end-0">${ai.data.accuracy.score}% accuracy</button>
   <img class="img-fluid w-full" src="${ai.data.image_link[0]}" class="card-img" alt="...">
 </div>
-<div class="text-center mt-5">
+<div class="text-center mt-5 p-4">
 <p class="fw-bold fs-4 text">${ai.data.input_output_examples[0].input}</p>
 <p>${ai.data.input_output_examples[1].output}</p>
 </div>
@@ -116,9 +117,13 @@ const showAiDetailsModal = (ai) =>{
 </div>
 
   `
-  // modalPart.appendChild(modalDiv)
-
-
 }
+
+const dateSort = (date) =>{
+  const dateSort = document.getElementById('dateSorting');
+  console.log('hello')
+  console.log(date);
+}
+dateSort();
 
 showAllData();
