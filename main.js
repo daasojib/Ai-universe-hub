@@ -26,7 +26,7 @@ const displayAllData = (show) =>{
             <div class="d-flex">
             <h5 class="card-title fw-bold ms-3">${elements.name}</h5>
             <p class="ms-3"><i class="me-3 fa-solid fa-calendar-days"></i>${elements.published_in}</p>
-            <button type="button" class="ms-auto mb-3 me-3 btn btn-danger"><i class=" fa-solid fa-arrow-right"></i></button>
+            <button id="showModalData" onclick="showDetails('${elements.id}')" type="button" class="ms-auto mb-3 me-3 btn btn-danger"><i class=" fa-solid fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -53,6 +53,28 @@ const spinnerSection = isLoading =>{
           else{
                     loader.classList.add('d-none')
           }
+}
+
+const showDetails = (id) =>{
+  const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`
+  fetch(url)
+  .then(res=>res.json())
+  .then(data=>showDetailsModal(data))
+}
+
+const showDetailsModal = (ai) =>{
+  console.log(ai);
+// document.getElementById('aiDetailsLabel').innerText = ai.image;
+// const aiDetails = document.getElementById('aiDetailsBody');
+// // aiDetails.innerHTML = `
+// <img src="${ai.image}" alt="">
+// `
+
+
+
+  // modalData.appendChild(modalDiv);
+
+
 }
 
 showAllData();
