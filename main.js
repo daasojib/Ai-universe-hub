@@ -70,19 +70,19 @@ const showAiDetailsModal = (ai) =>{
   modalPart.innerHTML = `
   <div class="row">
   <div class="col-sm-6 mb-3 mb-sm-0">
-    <div class="card bg-danger-subtle">
+    <div class="card bg-danger-subtle p-4">
       <div class="card-body">
       <p class="fw-bold fs-2 text">${ai.data.description}</p>
       <div class="d-lg-flex justify-content-between mt-5 mb-5">
-      <div class="border border-danger p-2 text-success text-center bg-light">
+      <div class="fw-bold border border-danger p-2 text-success text-center bg-light">
         <p>${ai.data.pricing[0].price}</p>
         <p>${ai.data.pricing[0].plan}</p>
       </div>
-      <div class="border border-danger p-2 text-primary text-center bg-light">
+      <div class="fw-bold border border-danger p-2 text-primary text-center bg-light">
         <p>${ai.data.pricing[1].price}</p>
         <p>${ai.data.pricing[1].plan}</p>
       </div>
-      <div class="border border-danger p-2 text-danger text-center bg-light">
+      <div class="fw-bold border border-danger p-2 text-danger text-center bg-light">
         <p>${ai.data.pricing[2].price}</p>
         <p>${ai.data.pricing[2].plan}</p>
       </div>
@@ -105,7 +105,12 @@ const showAiDetailsModal = (ai) =>{
   </div>
   <div class="col-sm-6">
   <div class="card">
+  <button class="w-25 ms-auto btn btn-danger">${ai.data.accuracy.score}% accuracy</button>
   <img class="img-fluid w-full" src="${ai.data.image_link[0]}" class="card-img" alt="...">
+</div>
+<div class="text-center mt-5">
+<p class="fw-bold fs-4 text">${ai.data.input_output_examples[0].input}</p>
+<p>${ai.data.input_output_examples[1].output}</p>
 </div>
   </div>
 </div>
