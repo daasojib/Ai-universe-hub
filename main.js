@@ -64,7 +64,7 @@ const showDetails = async(id) =>{
 }
 
 const showAiDetailsModal = (ai) =>{
-  // console.log(ai.data.image);
+  console.log(ai.data.input_output_examples[1].output);
   const modalPart = document.getElementById('modalDiv');
   // const modalDiv = document.createElement('div');
   modalPart.classList.add('modal-xl')
@@ -73,7 +73,7 @@ const showAiDetailsModal = (ai) =>{
   <div class="col-sm-6 mb-3 mb-sm-0">
     <div class="card bg-danger-subtle p-4">
       <div class="card-body">
-      <p class="fw-bold fs-2 text">${ai.data.description}</p>
+      <p class="fw-bold fs-2 text">${(ai.data.description===null)?alert("No Description found"):ai.data.description}</p>
       <div class="d-lg-flex justify-content-between mt-5 mb-5">
       <div class="fw-bold border border-danger p-2 text-success text-center bg-light">
         <p>${ai.data.pricing[0].price}</p>
@@ -119,11 +119,8 @@ const showAiDetailsModal = (ai) =>{
   `
 }
 
-const dateSort = (date) =>{
-  const dateSort = document.getElementById('dateSorting');
-  console.log('hello')
-  console.log(date);
-}
-dateSort();
+ 
+
+
 
 showAllData();
