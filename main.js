@@ -64,6 +64,7 @@ const showDetails = async(id) =>{
 }
 
 const showAiDetailsModal = (ai) =>{
+  const accuracy = (ai.data.accuracy.score)*100
   console.log(ai.data);
   const modalPart = document.getElementById('modalDiv');
   // const modalDiv = document.createElement('div');
@@ -73,19 +74,19 @@ const showAiDetailsModal = (ai) =>{
   <div class="col-sm-6 mb-3 mb-sm-0">
     <div class="card bg-danger-subtle p-4">
       <div class="card-body">
-      <p class="fw-bold fs-2 text">${(ai.data.description===null)?alert("No Description found"):ai.data.description}</p>
+      <p class="fw-bold fs-2 text">${ai.data.description}</p>
       <div class="d-lg-flex justify-content-between mt-5 mb-5">
       <div class="fw-bold border border-danger p-2 text-success text-center bg-light">
-        <p>${ai.data.pricing[0].price===null?alert("Free"):ai.data.pricing[0].price}</p>
-        <p>${ai.data.pricing[0].plan===null?alert("No plan"):ai.data.pricing[0].plan}</p>
+        <p>${ai.data.pricing[0].price}</p>
+        <p>${ai.data.pricing[0].plan}</p>
       </div>
       <div class="fw-bold border border-danger p-2 text-primary text-center bg-light">
         <p>${ai.data.pricing[1].price}</p>
-        <p>${ai.data.pricing[1].price}</p>
+        <p>${ai.data.pricing[1].plan}</p>
       </div>
       <div class="fw-bold border border-danger p-2 text-danger text-center bg-light">
-        <p>${ai.data.pricing[2].price===null?alert("Free"):ai.data.pricing[0].price}</p>
-        <p>${ai.data.pricing[2].price===null?alert("Free"):ai.data.pricing[0].price}</p>
+        <p>${ai.data.pricing[2].price}</p>
+        <p>${ai.data.pricing[2].plan}</p>
       </div>
       </div>
       <div class="d-lg-flex">
@@ -96,9 +97,9 @@ const showAiDetailsModal = (ai) =>{
       <li>${ai.data.features[3].feature_name}</li>
       </div>
       <div class="ms-auto"><p class="fw-bold">Integrations:</p>
-      <li>${ai.data.integrations[0]===null?alert("No Integration"):ai.data.integrations[0]}</li>
-      <li>${ai.data.integrations[1]===null?alert("No Integration"):ai.data.integrations[1]}</li>
-      <li>${ai.data.integrations[2]===null?alert("No Integration"):ai.data.integrations[2]}</li>
+      <li>${ai.data.integrations[0]}</li>
+      <li>${ai.data.integrations[1]}</li>
+      <li>${ai.data.integrations[2]}</li>
       </div>
       </div>
       </div>
@@ -106,12 +107,12 @@ const showAiDetailsModal = (ai) =>{
   </div>
   <div class="col-sm-6">
   <div class="card position-relative">
-  <button class="w-25 btn btn-danger position-absolute top-0 end-0">${ai.data.accuracy.score}% accuracy</button>
+  <button class="w-25 btn btn-danger position-absolute top-0 end-0">${accuracy}% accuracy</button>
   <img class="img-fluid w-full" src="${ai.data.image_link[0]}" class="card-img" alt="...">
 </div>
 <div class="text-center mt-5 p-4">
-<p class="fw-bold fs-4 text">${ai.data.input_output_examples[0].input===null?alert("No Input"):ai.data.input_output_examples[0].input}</p>
-<p>${ai.data.input_output_examples[1].output===null?alert("No output"):ai.data.input_output_examples[1].input}</p>
+<p class="fw-bold fs-4 text">${ai.data.input_output_examples[0].input}</p>
+<p>${ai.data.input_output_examples[1].output}</p>
 </div>
   </div>
 </div>
